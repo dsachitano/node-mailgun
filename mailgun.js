@@ -26,6 +26,9 @@
 var https = require('https'),
     querystring = require('querystring');
 
+// make sure we're not capped at 5 sockets
+https.globalAgent.maxSockets = Infinity;
+
 // Mailgun options constants.  See Mailgun's API docs for details.
 var MAILGUN_TAG = 'X-Mailgun-Tag',
     CAMPAIGN_ID = 'X-Campaign-Id';
